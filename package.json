@@ -1,0 +1,13 @@
+{
+  "name": "XMPPBot",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": "",
+  "author": "",
+  "license": "BSD",
+  "dependencies": {
+  	"junction": "*",
+	"node-stringprep": "*"
+  }
+}

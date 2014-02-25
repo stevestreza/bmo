@@ -14,7 +14,7 @@ app.use(junction.message(function(handler) {
 }));
 
 Plugin.loadPlugins(app, function(){
-	var connection = app.connect({ jid: config.xmpp.JID + "/bot", password: config.xmpp.password }).on('online', function() {
+	app.connection = app.connect({ jid: config.xmpp.JID + "/bot", password: config.xmpp.password }).on('online', function() {
 		console.log("BMO online.");
 		this.send(new junction.elements.Presence());
 	});
@@ -24,8 +24,8 @@ console.log("Connecting…");
 
 process.on('SIGINT', function() {
 	console.log(" Battery low. Shutdown.");
-	connection.on('close', function(){
+	app.connection.on('close', function(){
 		process.exit(0);
 	})
-	connection.end();
+	app.connection.end();
 });

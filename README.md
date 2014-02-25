@@ -19,6 +19,7 @@ Plugins
 =
 
 - [System](https://github.com/stevestreza/bmo-plugin-system) for doing ping and uptime
+- [Hue](https://github.com/stevestreza/bmo-plugin-hue) for controlling Hue light bulbs
 
 Usage
 =

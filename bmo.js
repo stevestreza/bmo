@@ -1,8 +1,9 @@
 var junction = require("junction");
-var config = require("./config");
-var Plugin = require("./plugin");
+var config = require("./lib/config");
+var Plugin = require("./lib/plugin");
 
 var app = junction().use(junction.messageParser())
+app.plugin = Plugin;
 
 app.use(junction.message(function(handler) {
 	handler.on('chat', function(stanza) {
@@ -12,9 +13,11 @@ app.use(junction.message(function(handler) {
 	});
 }));
 
-var connection = app.connect({ jid: config.xmpp.JID + "/bot", password: config.xmpp.password }).on('online', function() {
-	console.log("BMO online.");
-	this.send(new junction.elements.Presence());
+Plugin.loadPlugins(app, function(){
+	var connection = app.connect({ jid: config.xmpp.JID + "/bot", password: config.xmpp.password }).on('online', function() {
+		console.log("BMO online.");
+		this.send(new junction.elements.Presence());
+	});
 });
 
 console.log("Connecting…");

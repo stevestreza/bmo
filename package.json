@@ -1,13 +1,13 @@
 {
-  "name": "XMPPBot",
-  "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
-  "repository": "",
-  "author": "",
-  "license": "BSD",
-  "dependencies": {
-  	"junction": "*",
-	"node-stringprep": "*"
-  }
+	"name": "bmo",
+	"version": "0.0.1",
+	"description": "A plugin-based Jabber bot",
+	"main": "bmo.js",
+	"repository": "https://github.com/stevestreza/bmo.git",
+	"author": "Steve Streza",
+	"license": "BSD",
+	"dependencies": {
+		"junction": "*",
+		"async": "*"
+	}
 }
